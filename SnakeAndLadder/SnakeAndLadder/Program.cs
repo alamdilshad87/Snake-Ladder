@@ -8,6 +8,7 @@ public class SnakeAndLadder
         Console.WriteLine("Dice Range: 1 - 6");
         Console.WriteLine("Options:\n 0 - No Play\n 1 - Ladder\n 2 - Snake\n");
         int pos = 0;
+        int countD = 0;
         Random r = new Random();
         while (pos < 100)
         {
@@ -31,6 +32,7 @@ public class SnakeAndLadder
                     pos = newPos;
                     Console.WriteLine($"Option: Ladder — Player moves ahead by {dice} to {pos}");
                 }
+                countD++;
             }
             else
             {
@@ -41,5 +43,6 @@ public class SnakeAndLadder
         }
 
         Console.WriteLine("\nPlayer reached exactly 100!");
+        Console.WriteLine($"Total Dice Rolls: {countD}");
     }
 }
