@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 public class SnakeAndLadder
 {
     public static void Main(String[] args)
@@ -20,9 +21,16 @@ public class SnakeAndLadder
             }
             else if (option == 1)
             {
-                pos += dice;
-                if (pos > 100) pos = 100;
-                Console.WriteLine($"Option: Ladder — Player moves ahead by {dice} to {pos}");
+                int newPos = pos + dice;
+                if (newPos > 100)
+                {
+                    Console.WriteLine("Option: Ladder — Roll exceeds 100! Stay in the same position.");
+                }
+                else
+                {
+                    pos = newPos;
+                    Console.WriteLine($"Option: Ladder — Player moves ahead by {dice} to {pos}");
+                }
             }
             else
             {
@@ -32,6 +40,6 @@ public class SnakeAndLadder
             }
         }
 
-        Console.WriteLine("\nPlayer reached 100!");
+        Console.WriteLine("\nPlayer reached exactly 100!");
     }
 }
